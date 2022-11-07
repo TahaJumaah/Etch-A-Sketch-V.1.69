@@ -1,21 +1,23 @@
 body{
-    width: 100vw;
+    /* width: 100vw; */
     /* height: 100vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgb(235, 235, 227);
+    background-color: rgb(245,245,247);
 
 }
 
 #drawingContainerCentered{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
     flex-wrap: wrap;
     border: 3px solid red;
-    height: 50vh;
-    width: 50vw;
-    overflow: hidden;
+    height:50vh;
+    width: 75vw;
     
 }
 
@@ -23,10 +25,10 @@ body{
     display: flex;
     height: 25vh;
     width: 100%;
-    background-color: antiquewhite;
+    background-color: rgb(245,245,247);
     justify-content: center;
     align-items: center;
-    gap: 10vw;
+    gap: 5vw;
 }
 
 .button{
