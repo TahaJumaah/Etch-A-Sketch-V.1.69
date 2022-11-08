@@ -1,11 +1,11 @@
 let pixelHeight = '0vh'
 let pixelWidth = ' 0vw'
-let index = 1;
 let clickedDiv = document.getElementsByClassName('drawingDiv');
 let mainDrawingCanvas = document.getElementById('drawingContainerCentered');
 let smallCanvasButton = document.getElementById('smallCanvas');
 let mediumCanvasButon = document.getElementById('mediumCanvas');
 let largeCanvasButton = document.getElementById('largeCanvas');
+let createdDivArray = [];
 
 
 
@@ -19,9 +19,8 @@ function smallCanvas() {
     clearCanvas();
 pixelHeight = '10%';
 pixelWidth = '10%';
-index = 1;
-for (index ; index <= 100; index++) {
-    createPixels();    
+for (let index = 1 ; index <= 100; index++) {
+    createPixels(); 
 }   
 }
 
@@ -30,7 +29,7 @@ function mediumCanvas() {
     pixelHeight = '6.5%';
     pixelWidth = '5.5%';
     index = 1;
-    for (index ; index <= 270; index++) {
+    for (let index = 1 ; index <= 270; index++) {
         createPixels();
     }}
 
@@ -39,7 +38,7 @@ function mediumCanvas() {
         pixelHeight = '5%';
         pixelWidth = '4%'
         index = 1;
-        for (index; index < 501; index++) {
+        for (let index = 1; index < 501; index++) {
             createPixels()
             
         }
@@ -47,30 +46,35 @@ function mediumCanvas() {
     }
 //END OF CANVAS TYPES
 
-// function addColor() {
-//     drawingDiv.style.backgroundColor = 'red';
-    
-// };
-
+let drawingDivArray = [];
 function createPixels(numberOfPixels){
     let drawingDiv = document.createElement('div');
     drawingDiv.style.width = pixelHeight;
     drawingDiv.style.height = pixelWidth;
-    drawingDiv.className = 'drawingDiv'
-    // div.style.backgroundColor = 'red';
+    drawingDiv.className = 'createdDiv'
     drawingDiv.style.maxheight = 'inherit';
-    // div.style.border = '0.1px solid black'
-    document.getElementById('drawingContainerCentered').appendChild(drawingDiv);
-    // addColor();
-    // mainDrawingCanvas.style.width = 'fit-content';
+    createdDivArray.push(drawingDiv);
+
+    document.getElementById('drawingContainerCentered').appendChild
+    (drawingDiv);
+
+    for (let index = 0; index < createdDivArray.length; index++) {
+        const element = createdDivArray[index];
+        element.addEventListener('mousedown', colortheDiv);
+        
+    }
 }
 
-// function addColor(){
-//     let divToColor = document.getElementsByClassName('drawingDiv');
-//     divToColor.addEventListener('click', addColor());
-//     divToColor.style.backgroundColor = 'red';
-// }
+function colortheDiv() {
+    this.style.backgroundcolor = 'red';
+    // let divs = document.getElementsByClassName('createdDiv')
+    // divs.addEventListener('mouseover', addColor);
+    
+}
 
+function addColor(){
+    this.style.backgroundcolor=('red');
+}
 
 
 
