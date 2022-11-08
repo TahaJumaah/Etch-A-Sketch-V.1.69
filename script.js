@@ -8,7 +8,6 @@ let largeCanvasButton = document.getElementById('largeCanvas');
 let createdDivArray = [];
 
 
-
 function clearCanvas() {
     let mainCanvas = document.getElementById('drawingContainerCentered')
     mainCanvas.innerHTML='';
@@ -54,29 +53,35 @@ function createPixels(numberOfPixels){
     drawingDiv.className = 'createdDiv'
     drawingDiv.style.maxheight = 'inherit';
     createdDivArray.push(drawingDiv);
-
     document.getElementById('drawingContainerCentered').appendChild
     (drawingDiv);
 
     for (let index = 0; index < createdDivArray.length; index++) {
         const element = createdDivArray[index];
-        element.addEventListener('mousedown', colortheDiv);
-        
+        element.addEventListener('touchstart', colortheDiv);
+        window.addEventListener('touchend', mouseUpEndColoring);
     }
 }
 
 function colortheDiv() {
-    this.style.backgroundcolor = 'red';
-    // let divs = document.getElementsByClassName('createdDiv')
-    // divs.addEventListener('mouseover', addColor);
-    
+    this.style.backgroundColor = 'red';
+    for (let index = 0; index < createdDivArray.length; index++) {
+        const element = createdDivArray[index];
+        element.addEventListener('touchstart', addColor)
+    }
 }
 
 function addColor(){
-    this.style.backgroundcolor=('red');
+    this.style.backgroundColor=('red');
 }
 
-
+function mouseUpEndColoring() {
+    for (let index = 0; index < createdDivArray.length; index++) {
+        const element = createdDivArray[index];
+        element.removeEventListener('touchmove', addColor)
+    }
+    
+}
 
 smallCanvasButton.addEventListener('click', smallCanvas)
 mediumCanvasButon.addEventListener('click', mediumCanvas)
