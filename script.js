@@ -53,13 +53,13 @@ function createPixels(numberOfPixels){
     drawingDiv.className = 'createdDiv'
     drawingDiv.style.maxheight = 'inherit';
     createdDivArray.push(drawingDiv);
-    document.getElementById('drawingContainerCentered').appendChild
-    (drawingDiv);
+    document.getElementById('drawingContainerCentered').appendChild(drawingDiv);
 
     for (let index = 0; index < createdDivArray.length; index++) {
         const element = createdDivArray[index];
+        element.addEventListener('mousedown', colortheDiv);
         element.addEventListener('touchstart', colortheDiv);
-        window.addEventListener('touchend', mouseUpEndColoring);
+        element.addEventListener('mouseup', mouseUpEndColoring);
     }
 }
 
@@ -67,7 +67,8 @@ function colortheDiv() {
     this.style.backgroundColor = 'red';
     for (let index = 0; index < createdDivArray.length; index++) {
         const element = createdDivArray[index];
-        element.addEventListener('touchstart', addColor)
+        element.addEventListener('mouseover', addColor);
+        element.addEventListener('touchmove', addColor)
     }
 }
 
@@ -78,7 +79,7 @@ function addColor(){
 function mouseUpEndColoring() {
     for (let index = 0; index < createdDivArray.length; index++) {
         const element = createdDivArray[index];
-        element.removeEventListener('touchmove', addColor)
+        element.removeEventListener('mouseover', addColor)
     }
     
 }
