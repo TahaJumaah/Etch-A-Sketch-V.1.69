@@ -6,16 +6,19 @@ body{
     justify-content: center;
     align-items: center;
     background-color: rgb(245,245,247);
+    gap: 5vh;
 
 }
 
 #drawingContainerCentered{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0px;
     flex-wrap: wrap;
-    border: 3px solid red;
+    border: 5px solid rgba(0, 0, 0, 0.089);
+    border-radius: 1%;
     height:100vw;
     width: 75vw;
     max-height: 500px;
@@ -25,12 +28,20 @@ body{
 
 .headerTools{
     display: flex;
-    height: 25vh;
+    /* height: 10vh; */
     width: 100%;
     background-color: rgb(245,245,247);
     justify-content: center;
     align-items: center;
-    gap: 5vw;
+    flex-wrap: wrap;
+    gap: 2vw;
+}
+
+#bottom-tools{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 3vh; */
 }
 
 .button{

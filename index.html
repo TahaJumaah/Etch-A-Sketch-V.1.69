@@ -7,18 +7,33 @@
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+    <script src="jscolor.js"></script>
 </head>
 <body>
     <div class="headerTools">
+        <button class="button" id="colorPicker" data-jscolor="" > Select A Color</button>
+
         <button class="button", id="smallCanvas">Small Canvas</button>
         <button class="button", id="mediumCanvas">Medium Canvas</button>
         <button class="button", id="largeCanvas">Large Canvas</button>
     </div>
+
     <div id="drawingContainerCentered">
+
+        <h1>Pixel Sketch <br></h1>
+        
+        <ul>
+            <li>Pick A Color from the Color Selector</li>
+            <li>Select the Canvas or Pixel Size You Want</li>
+            <li>Go Wild</li>
+        </ul>
 
 
     </div>
 
+    <div id="bottom-tools">
+        <button class="button", id="clearCanvas">Clear Canvas</button>
 
+    </div>
 </body>
 </html>
