@@ -66,9 +66,9 @@ function createPixels(numberOfPixels){
 
     for (let index = 0; index < createdDivArray.length; index++) {
         const element = createdDivArray[index];
-        element.addEventListener('mousedown', colortheDiv);
-        // element.addEventListener('touchstart', colortheDiv);
-        window.addEventListener('mouseup', mouseUpEndColoring);
+        element.addEventListener('pointerdown', colortheDiv);
+        // element.addEventListener('touchstart', touchLocation);
+        window.addEventListener('pointerup', mouseUpEndColoring);
     }
 }
 let colorPicker = document.getElementById('colorPicker');
@@ -78,7 +78,7 @@ function colortheDiv() {
     this.style.backgroundColor = colorPicker.jscolor.toHEXString();
     for (let index = 0; index < createdDivArray.length; index++) {
         const element = createdDivArray[index];
-        element.addEventListener('mouseover', addColor);
+        element.addEventListener('pointerover', addColor);
         // element.addEventListener('touchmove', addColor)
     }
 }
@@ -90,7 +90,7 @@ function addColor(){
 function mouseUpEndColoring() {
     for (let index = 0; index < createdDivArray.length; index++) {
         const element = createdDivArray[index];
-        element.removeEventListener('mouseover', addColor)
+        element.removeEventListener('pointerover', addColor)
     }
     
 }
@@ -99,3 +99,7 @@ smallCanvasButton.addEventListener('click', smallCanvas)
 mediumCanvasButon.addEventListener('click', mediumCanvas)
 largeCanvasButton.addEventListener('click', largeCanvas)
 clearCanvasButton.addEventListener('click', clearCanvas)
+
+
+
+// Fiddling with touch support, will try to use location data to color the div background
